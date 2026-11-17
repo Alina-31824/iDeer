@@ -13,8 +13,10 @@ ENV_PATH = REPO_ROOT / ".env"
 
 
 def read_env(name: str, default: str = "") -> str:
-    value = os.getenv(name, default)
-    return value.strip() if isinstance(value, str) else default
+    value = os.getenv(name)
+    if not isinstance(value, str) or not value.strip():
+        return default
+    return value.strip()
 
 
 def read_secret(name: str, missing: list[str]) -> str:
