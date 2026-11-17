@@ -35,9 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      IDEER_PROVIDER: ${{ secrets.IDEER_PROVIDER }}
-      IDEER_MODEL_NAME: ${{ secrets.IDEER_MODEL_NAME }}
-      IDEER_BASE_URL: ${{ secrets.IDEER_BASE_URL }}
+      IDEER_PROVIDER: openai
+      IDEER_MODEL_NAME: gpt-5.4-mini
+      IDEER_BASE_URL: https://api.openai.com/v1
       IDEER_API_KEY: ${{ secrets.IDEER_API_KEY }}
       IDEER_TEMPERATURE: ${{ secrets.IDEER_TEMPERATURE }}
       IDEER_SMTP_SERVER: ${{ secrets.IDEER_SMTP_SERVER }}
