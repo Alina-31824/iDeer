@@ -36,7 +36,7 @@ jobs:
     timeout-minutes: 90
     env:
       IDEER_PROVIDER: openai
-      IDEER_MODEL_NAME: gpt-5.4-mini
+      IDEER_MODEL_NAME: gpt-5.6-luna
       IDEER_BASE_URL: https://api.openai.com/v1
       IDEER_API_KEY: ${{ secrets.IDEER_API_KEY }}
       IDEER_TEMPERATURE: ${{ secrets.IDEER_TEMPERATURE }}
