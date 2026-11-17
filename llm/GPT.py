@@ -40,10 +40,13 @@ class GPT():
                 request_kwargs = {
                     "model": model_name,
                     "messages": message,
-                    "temperature": temperature,
                 }
-                if str(model_name).startswith("gpt-5"):
+                # OpenAI reasoning models (GPT-5/6) do not accept the
+                # sampling temperature parameter; use a low reasoning effort.
+                if str(model_name).startswith(("gpt-5", "gpt-6")):
                     request_kwargs["extra_body"] = {"reasoning_effort": "low"}
+                else:
+                    request_kwargs["temperature"] = temperature
                 result = self.client.chat.completions.create(**request_kwargs)
                 response_message = self._normalize_response_text(result.choices[0].message.content)
                 return response_message
