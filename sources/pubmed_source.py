@@ -57,7 +57,7 @@ class PubMedSource(BaseSource):
                     line = line[len(prefix):].strip(" :：-")
             if line and len(line) > 2:
                 queries.append(line[:120])
-            if len(queries) >= 3:
+            if len(queries) >= 4:
                 break
 
         return queries or ["biomedical"]
