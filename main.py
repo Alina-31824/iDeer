@@ -27,9 +27,9 @@ def env_float(name: str, default: float | None = None) -> float | None:
 
 def main():
     load_dotenv()
-    provider_default = env_str("PROVIDER", "openai")
-    model_default = env_str("MODEL_NAME")
-    base_url_default = env_str("BASE_URL")
+    provider_default = env_str("PROVIDER", "deepseek")
+    model_default = env_str("MODEL_NAME", "deepseek-flash")
+    base_url_default = env_str("BASE_URL", "https://api.deepseek.com")
     api_key_default = env_str("API_KEY")
     temperature_default = env_str("TEMPERATURE")
 
@@ -45,7 +45,7 @@ def main():
     parser.add_argument(
         "--provider", type=str,
         default=provider_default,
-        help="LLM provider (default: openai; configurable via PROVIDER in .env)",
+        help="LLM provider (deepseek, openai-compatible, siliconflow, or ollama; configurable via PROVIDER in .env)",
     )
     parser.add_argument(
         "--model", type=str,
