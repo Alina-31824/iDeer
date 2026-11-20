@@ -228,7 +228,7 @@ class IdeaGenerator:
         provider = llm_config.provider.lower()
         if provider == "ollama":
             return Ollama(llm_config.model)
-        if provider in ("openai", "siliconflow"):
+        if provider in ("openai", "deepseek", "siliconflow"):
             return GPT(llm_config.model, llm_config.base_url, llm_config.api_key)
         raise ValueError(f"Unsupported LLM provider: {provider}")
 
