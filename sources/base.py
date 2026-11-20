@@ -61,7 +61,7 @@ class BaseSource(ABC):
         provider = llm_config.provider.lower()
         if provider == "ollama":
             self.model = Ollama(llm_config.model)
-        elif provider in ("openai", "siliconflow"):
+        elif provider in ("openai", "deepseek", "siliconflow"):
             self.model = GPT(llm_config.model, llm_config.base_url, llm_config.api_key)
         else:
             raise ValueError(f"Unsupported LLM provider: {provider}")
