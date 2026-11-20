@@ -59,7 +59,7 @@ def main() -> int:
         )
         return 1
 
-    provider = read_env("IDEER_PROVIDER", "openai")
+    provider = read_env("IDEER_PROVIDER", "deepseek")
     temperature = read_env("IDEER_TEMPERATURE", "0.5")
     daily_sources = read_env("INPUT_SOURCES") or read_env(
         "IDEER_DAILY_SOURCES",
