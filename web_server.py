@@ -47,9 +47,9 @@ GITHUB_REPO_URL = "https://github.com/LiYu0524/daily-recommender"
 
 DEFAULT_CONFIG = {
     "desktop_python_path": "",
-    "provider": "openai",
-    "model": "gpt-4o-mini",
-    "base_url": "",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "base_url": "https://api.deepseek.com",
     "api_key": "",
     "temperature": 0.5,
     "smtp_server": "",
@@ -470,9 +470,9 @@ def _collect_generated_files(result_dirs: list[Path]) -> list[dict]:
 
 class Config(BaseModel):
     desktop_python_path: str = ""
-    provider: str = "openai"
-    model: str = "gpt-4o-mini"
-    base_url: str = ""
+    provider: str = "deepseek"
+    model: str = "deepseek-flash"
+    base_url: str = "https://api.deepseek.com"
     api_key: str = ""
     temperature: float = 0.5
     smtp_server: str = ""
@@ -692,11 +692,11 @@ async def run_daily_recommender(req: RunRequest, extra_args: list[str] | None = 
             "--num_workers",
             "4",
             "--provider",
-            config.get("provider", "openai"),
+            config.get("provider", "deepseek"),
             "--model",
-            config.get("model", "gpt-4o-mini"),
+            config.get("model", "deepseek-flash"),
             "--base_url",
-            config.get("base_url", ""),
+            config.get("base_url", "https://api.deepseek.com"),
             "--api_key",
             config.get("api_key", ""),
             "--temperature",
