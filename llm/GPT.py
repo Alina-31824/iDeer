@@ -2,6 +2,7 @@
 Use GPT Series Models
 """
 
+import os
 from openai import OpenAI
 import time
 
@@ -81,15 +82,10 @@ class GPT():
         return stripped
 
 if __name__ == "__main__":
-    # Test GPT
-    model = "gpt-3.5-turbo"
-    base_url = "https://api.openai.com/v1"
-    api_key = "*"
-
-    # Test SiliconFlow
-    model = "deepseek-ai/DeepSeek-V3"
-    base_url = "https://api.siliconflow.cn/v1"
-    api_key = "*"
+    # Test the official DeepSeek API (set DEEPSEEK_API_KEY first).
+    model = "deepseek-flash"
+    base_url = "https://api.deepseek.com"
+    api_key = os.environ["DEEPSEEK_API_KEY"]
     gpt = GPT(model, base_url, api_key)
     prompt = "Hello, who are you?"
     response = gpt.inference(prompt, temperature=1)
