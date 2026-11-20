@@ -104,9 +104,9 @@ def cmd_init(args):
         else:
             env_file.write_text(
                 "# iDeer configuration\n"
-                "PROVIDER=openai\n"
-                "MODEL_NAME=\n"
-                "BASE_URL=\n"
+                "PROVIDER=deepseek\n"
+                "MODEL_NAME=deepseek-flash\n"
+                "BASE_URL=https://api.deepseek.com\n"
                 "API_KEY=\n"
                 "TEMPERATURE=0.5\n",
                 encoding="utf-8",
